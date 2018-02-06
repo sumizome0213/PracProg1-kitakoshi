@@ -153,13 +153,13 @@ int bm_search(uchar text[], uchar pattern[])
 }
 
 
-int doit(uchar text[TEXT_LENGTH+1])
+int doit(uchar text[TEXT_LENGTH+1], uchar pattern[PATN_LENGTH+1])
 {
     //uchar text[TEXT_LENGTH+1];
-    uchar pattern[PATN_LENGTH+1];
+    //uchar pattern[PATN_LENGTH+1];
     int position;
     //strcpy(text,"aabbabcabc");
-    strcpy(pattern,"abcab");
+    //strcpy(pattern,"abcab");
 
 #if BF
     printf("--- B F ---\n");
@@ -190,9 +190,12 @@ return 0;
 
 int main(void){
     uchar text[TEXT_LENGTH+1];
+    uchar pattern[PATN_LENGTH+1];
     strcpy(text,"aabbabcabc");
-    doit(text);
+    strcpy(pattern,"abcab");
+    doit(text,pattern);
     strcpy(text,"pyokopyokomipyokopyokomepyokopyokopyokopyokomupyokopyoko");
-    doit(text);
+    strcpy(pattern,"pyokopyokomu");
+    doit(text,pattern);
     return 0;
 }

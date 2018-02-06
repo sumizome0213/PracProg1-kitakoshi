@@ -21,7 +21,7 @@ int brute_force_search(char text[], char pattern[])
             j++;
             if (j==patn_len) {
                 printf(" ...success\n");
-                return i - patn_len + 2;
+                return i - patn_len + 1;
             }
             i++;
         }else{
@@ -71,7 +71,7 @@ int kmp_search(char text[], char pattern[])
             j++;
             if (j==patn_len) {
                 printf(" ...success\n");
-                return i - patn_len + 2;
+                return i - patn_len + 1;
             }
             i++;
         }else{
@@ -86,13 +86,13 @@ int kmp_search(char text[], char pattern[])
    return -1;
 }
 
-int doit(char text[TEXT_LENGTH+1])
+int doit(char text[TEXT_LENGTH+1], char pattern[PATN_LENGTH+1])
 {
     //char text[TEXT_LENGTH+1];
-    char pattern[PATN_LENGTH+1];
+    //char pattern[PATN_LENGTH+1];
     int position;
     //strcpy(text,"xxxtartartayx");
-    strcpy(pattern,"tartay");
+    //strcpy(pattern,"tartay");
 
 #if BF
     printf("--- B F ---\n");
@@ -113,9 +113,12 @@ int doit(char text[TEXT_LENGTH+1])
 
 int main(void){
     char text[TEXT_LENGTH+1];
+    char pattern[PATN_LENGTH+1];
     strcpy(text,"xxxtartartayx");
-    doit(text);
+    strcpy(pattern,"tartay");
+    doit(text, pattern);
     strcpy(text,"pyokopyokomipyokopyokomepyokopyokopyokopyokomupyokopyoko");
-    doit(text);
+    strcpy(pattern,"pyokopyokomu");
+    doit(text, pattern);
     return 0;
 }

@@ -21,7 +21,7 @@ int brute_force_search(char text[], char pattern[])
             j++;
             if (j==patn_len) {
                 printf(" ...success\n");
-                return i - patn_len + 2;
+                return i - patn_len + 1;
             }
             i++;
         }else{
@@ -71,7 +71,7 @@ int kmp_search(char text[], char pattern[])
             j++;
             if (j==patn_len) {
                 printf(" ...success\n");
-                return i - patn_len + 2;
+                return i - patn_len + 1;
             }
             i++;
         }else{
